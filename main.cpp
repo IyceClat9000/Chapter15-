@@ -1,34 +1,37 @@
-//Thanh Phan
-//04-12-2026
-//Chapter 15 - Assignment, Team members: Angelo, Andy, Aleeza, Luis, Sven, Thanh
-
 #include <iostream>
+#include "GradedActivity.h"
+#include "Essay.h"
+#include "input.h"
 #include <iomanip>
-#include "Ship.h"
-#include "CruiseShip.h"
-#include "CargoShip.h"
 using namespace std;
-
-//function prototype
-void Challenge12();
 
 int main()
 {
-	//Challenge12
-	Challenge12();
+	cout << "\n\tChallenge 6 - Essay Class";
+	cout << "\n";
+	double grammar = 0.0;
+	double spelling = 0.0;
+	double length = 0.0;
+	double content = 0.0;
 
-	return EXIT_SUCCESS;
-}
+	//get the number of grammar points
+	grammar = inputDouble("\n\tEnter the number of points the student earned for grammar : ", 0.0 , 30.0);
 
-void Challenge12()
-{
-	//create new ship array, the book says so
-	const int SHIPNUMBER = 3;
-	Ship* arrayOfShips[SHIPNUMBER] = { new Ship("Nautica", "1999"), new CruiseShip("Titanic", "1911", 2435), new CargoShip("HMM Algeciras", "2020", 23820)};
+	//get the number of spelling points
+	spelling = inputDouble("\n\tEnter the number of points the student earned for spelling : ", 0.0, 20.0);
 
-	//display using print function (dynamic binding testing)
-	for (int i = 0; i < SHIPNUMBER; i++)
-	{
-		arrayOfShips[i]->print();
-	}
+	//get the number of correct length points
+	length = inputDouble("\n\tEnter the number of points the student earned for correct length : ", 0.0, 20.0);
+
+	//get the number of content points
+	content = inputDouble("\n\tEnter the number of points the student earned for content : ", 0.0, 30.0);
+
+	Essay essay(grammar, spelling, length, content);
+
+	//display the essay results
+	cout << setprecision(2);
+	cout << "\n\tThe total number of points for essay : " << essay.getScore();
+	cout << "\n\tThe essay grade                      : " << essay.getLetterGrade();
+	cout << "\n\n";
+
 }
