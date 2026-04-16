@@ -14,23 +14,35 @@ protected:
 	AmPm checkAM;
 public:
 	//Default constructor
+	//Precondition: None
+	//Postcondition: Sets private members hour, min, and sec to 0
 	Time()
 	{ hour = 0; min = 0; sec = 0; }
 	
 	// Constructor
+	//Precondition: h, m, and smust be positive integers, m and s should be less than 60
+	//Postcondition: sets private members hour, min, and sec to h, m, and s respectively
 	Time(int h, int m, int s)
 	{ hour = h; min = m; sec = s; }
 	
 	// Accessor functions
+	//Precondition: None
+	//Postcondition: returns the private member hour
 	int getHour() const
 	{ return hour; }
 	
+	//Precondition: None
+	//Postcondition: returns the private member min
 	int getMin() const
 	{ return min; }
 	
+	//Precondition: None
+	//Postcondition: returns the private member sec
 	int getSec() const
 	{ return sec; }
 
+	//Precondition: hour must be a positive integer from 1-24
+	//Postcondition: Converts the hour to its standard time and at AM or PM
 	void convert()
 	{
 		if (hour >= 12 && hour < 24)
@@ -54,6 +66,8 @@ public:
 
 	}
 
+	//Precondition: The checkAM member must be defined to AM or PM
+	//Postcondition: Returns a string "AM" or "PM"
 	string getTimeOfDay() const
 	{
 		if (checkAM == AM)
