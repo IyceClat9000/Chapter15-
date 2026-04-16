@@ -21,6 +21,10 @@ public:
 	void setBuiltYear(string newBuiltYear);
 	string getBuiltYear() const;
 
+	//virtual print function
 	virtual void print() const;
+
+	//virtual destructor (free up memory)
+	virtual ~Ship();
 };
 
